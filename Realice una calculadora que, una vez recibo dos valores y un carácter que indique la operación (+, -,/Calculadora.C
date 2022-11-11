@@ -1,9 +1,10 @@
 #include <stdio.h> 
+#include <stdio_ext.h> 
 int numero1;
 int numero2;
 
 int main(void) {
-  int op;
+  char op;
   int res;
   int uso=0;
   printf("Bienvenido a la calculadora\n");
@@ -13,20 +14,21 @@ int main(void) {
     scanf("%d", &numero1);
     printf("Ingrese otro número: \n");
     scanf("%d", &numero2);
-    printf("Ingrese 1 para sumar, 2 para restar, 3 para   multiplicar y 4 para dividir.\n");
-    scanf("%d", &op);
+    printf("Ingrese + para sumar, - para restar, * para   multiplicar y / para dividir.\n");
+    __fpurge(stdin);
+    scanf("%c", &op);
 
   switch(op){
-    case 1: res = numero1 + numero2;
+    case '+': res = numero1 + numero2;
             printf("El resultado es: %d\n", res);
             break;
-    case 2: res = numero1 - numero2;
+    case '-': res = numero1 - numero2;
             printf("El resultado es: %d\n", res);
             break;
-    case 3: res = numero1 * numero2;
+    case '*': res = numero1 * numero2;
             printf("El resultado es: %d\n", res);
             break;
-    case 4: 
+    case '/': 
            if (numero2==0) printf ("Ma ERROR\n");
              else {res = numero1 / numero2;
              printf("El resultado es: %d\n", res);
